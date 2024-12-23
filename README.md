@@ -51,7 +51,7 @@ Employee employee = builder.Build();
 El Director simplifica el proceso de construcción mediante métodos predefinidos que aplican configuraciones específicas:
 
 ```java
-        Employee defaultEmployeeFemale = director.createDefaultEmployeeFemale("Luis","4123123132");
+        Employee defaultEmployeeFemale = director.createDefaultEmployeeFemale("Paula","4123123132");
         System.out.println(defaultEmployeeFemale);
 
         Employee defaultEmployeeMale = director.createDefaultEmployeeFemale("Luis","4123123132");
