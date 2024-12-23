@@ -1,8 +1,14 @@
 package org.example;
 
-import org.example.EmployeeDirector;
+
+import org.example.directors.AccommodationDirector;
+import org.example.directors.EmployeeDirector;
+import org.example.models.Accommodation;
 import org.example.models.Address;
 import org.example.models.Phone;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,17 +38,27 @@ public class Main {
 
         //ejemplo con director
         Employee.EmployeeBuilder builder = new Employee.EmployeeBuilder();
-        EmployeeDirector director= new EmployeeDirector(builder);
+        EmployeeDirector EmployeeDirector = new EmployeeDirector(builder);
 
-        Employee defaultEmployeeFemale = director.createDefaultEmployeeFemale("Luis","4123123132");
+        Employee defaultEmployeeFemale = EmployeeDirector.createDefaultEmployeeFemale("Luis","4123123132");
         System.out.println(defaultEmployeeFemale);
 
-        Employee defaultEmployeeMale = director.createDefaultEmployeeFemale("Luis","4123123132");
+        Employee defaultEmployeeMale = EmployeeDirector.createDefaultEmployeeFemale("Luis","4123123132");
         System.out.println(defaultEmployeeMale);
 
-        Employee customEmployee = director.createCustomEmployee("Alice Brown", 28, "Female");
+        Employee customEmployee = EmployeeDirector.createCustomEmployee("Alice Brown", 28, "Female");
         System.out.println(customEmployee);
 
+
+        //Creacion de hospedaje por ciudad
+        AccommodationDirector director = new AccommodationDirector();
+        List< Accommodation> repository = new LinkedList<>();
+        repository.add(director.createHotelDefault("Bogotá"));//hotel defaul
+        repository.add(director.createHotelDefault("Cartagena"));
+        repository.add(director.createFarmHouse("Medellín"));//finca default
+        repository.add(director.createFarmHouse("Cartagena"));
+        repository.add(director.createApartmentDefault("Bogotá"));//apartamento default
+        repository.add(director.createApartmentDefault("Medellín"));
 
 //        Employee employee= new Employee();
 //        Address address= new Address();

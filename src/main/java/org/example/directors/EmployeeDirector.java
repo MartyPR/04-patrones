@@ -1,7 +1,8 @@
-package org.example;
+package org.example.directors;
 
+
+import org.example.Employee;
 import org.example.models.Address;
-import org.example.models.Contact;
 import org.example.models.Phone;
 
 public class EmployeeDirector {
